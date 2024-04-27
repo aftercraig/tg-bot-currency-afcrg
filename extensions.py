@@ -9,6 +9,7 @@ class DataValidationException(Exception):
 
     pass
 
+access_key='iAYQM7ilwjm0bMvID3atIQh6xyr17nwT'
 
 class Converter():
 
@@ -36,8 +37,8 @@ class Converter():
         except ValueError:
             e = f'Ошибка! Не удалось обработать количество «{base_amount}».'
             raise DataValidationException(e)
-
-        url = f'https://api.exchangerate.host/convert?from={base_key}&to={quote_key}&amount={base_amount}'
+        
+        url = f'https://api.exchangerate.host/convert?from={base_key}&to={quote_key}&amount={base_amount}&access_key=iAYQM7ilwjm0bMvID3atIQh6xyr17nwT'
         response = requests.get(url)
         data = json.loads(response.content)
 
